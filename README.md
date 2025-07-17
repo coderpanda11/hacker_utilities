@@ -80,3 +80,6 @@ You can easily modify:
 5. Continue to see the pattern...
 
 This follows the exact binary counting pattern you described!
+
+# Collaboration
+Developers and Hackers are welcomed to improve any changes in this. 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary & Hexadecimal Learning with Interactive Plates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="nav-title">Number System Learning</h2>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="switchTab('binary')">Binary</button>
+                <button class="nav-tab" onclick="switchTab('hexadecimal')">Hexadecimal</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Binary Tab -->
+        <div id="binary-tab" class="tab-content active">
+            <h1>🔢 Binary Learning with Interactive Plates</h1>
+            <div class="tutorial">
+                <h3>How to use:</h3>
+                <p>Click on the plates to flip them between 0 and 1. Each plate represents a power of 2. The leftmost plate is 2^6 (64), and the rightmost is 2^0 (1). Watch how the decimal value changes as you flip the plates!</p>
+            </div>
+            <div class="powers-display" id="powersDisplay"></div>
+            <div class="plates-container" id="platesContainer"></div>
+            <div class="binary-display" id="binaryDisplay">0000000</div>
+            <div class="decimal-display" id="decimalDisplay">0</div>
+            <div class="controls">
+                <button class="btn btn-primary" onclick="autoIncrement()">Auto Increment</button>
+                <button class="btn btn-secondary" onclick="resetPlates()">Reset</button>
+                <button class="btn btn-success" onclick="randomValue()">Random</button>
+            </div>
+            <div class="decimal-input">
+                <label>Set Decimal Value:</label>
+                <input type="number" id="decimalInput" min="0" max="127" value="0">
+                <button class="btn btn-primary" onclick="setDecimal()">Set</button>
+            </div>
+            <div class="info-section">
+                <div class="info-card">
+                    <h3>Current State</h3>
+                    <p><strong>Binary:</strong> <span id="currentBinary">0000000</span></p>
+                    <p><strong>Decimal:</strong> <span id="currentDecimal">0</span></p>
+                    <p><strong>Range:</strong> 0 to 512</p>
+                </div>
+                <div class="info-card">
+                    <h3>Recent History</h3>
+                    <div class="history" id="historyDisplay">
+                        <div class="history-item">Start: 0000000 = 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hexadecimal Tab -->
+        <div id="hex-tab" class="tab-content" style="display:none;">
+            <h1>🔢 Hexadecimal Learning with Interactive Plates</h1>
+            <div class="tutorial">
+                <h3>How to use:</h3>
+                <p>Click on the plates to increment their value (0-15). Each plate represents a power of 16. The leftmost plate is 16^6, and the rightmost is 16^0. Watch how the decimal and hexadecimal values change as you flip the plates!</p>
+            </div>
+            <div class="powers-display" id="powersDisplayHex"></div>
+            <div class="plates-container" id="platesContainerHex"></div>
+            <div class="hex-display" id="hexDisplay">0000000</div>
+            <div class="decimal-display" id="decimalDisplayHex">0</div>
+            <div class="controls">
+                <button class="btn btn-primary" onclick="autoIncrement()">Auto Increment</button>
+                <button class="btn btn-secondary" onclick="resetPlates()">Reset</button>
+                <button class="btn btn-success" onclick="randomValue()">Random</button>
+            </div>
+            <div class="decimal-input">
+                <label>Set Decimal Value:</label>
+                <input type="number" id="decimalInputHex" min="0" max="127" value="0">
+                <button class="btn btn-primary" onclick="setDecimal()">Set</button>
+            </div>
+            <div class="info-section">
+                <div class="info-card">
+                    <h3>Current State</h3>
+                    <p><strong>Hexadecimal:</strong> <span id="currentHex">0000000</span></p>
+                    <p><strong>Decimal:</strong> <span id="currentDecimalHex">0</span></p>
+                    <p><strong>Range:</strong> 0 to 16,777,215</p>
+                </div>
+                <div class="info-card">
+                    <h3>Recent History</h3>
+                    <div class="history" id="historyDisplayHex">
+                        <div class="history-item">Start: 0000000 = 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
